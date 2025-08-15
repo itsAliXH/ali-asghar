@@ -633,6 +633,13 @@
     .hero-content h2 {
       font-size: 2rem;
     }
+    /* Long hero tagline: allow wrapping on mobile and disable slider */
+    .sliding-text {
+      white-space: normal;
+      overflow: visible;
+      animation: none;
+      text-align: center;
+    }
     .about {
       padding: 32px 0;
     }
@@ -641,9 +648,18 @@
     }
     .project-card {
       padding: 16px;
+      /* Disable floating animation on mobile to avoid layout shift */
+      animation: fadeInUp 0.8s ease-out forwards;
     }
     .project-card img {
-      max-width: 120px;
+      height: 160px;
+      max-width: 100%;
+      object-fit: contain; /* avoid zoom-in/cropping on small screens */
+      transform: none;     /* cancel hover transforms on touch */
+      filter: none;
+      display: block;
+      margin: 0 auto 12px;
+      background: #f8f8f8;
     }
     .footer {
       font-size: 0.95rem;
